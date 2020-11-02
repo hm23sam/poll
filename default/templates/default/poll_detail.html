@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p><a href="/poll/" class="btn btn-primary">prev</a></p>
+
+<div class="card">
+    <div class="card-header">
+        <H1>{{ poll.subject }}</H1>
+    </div>
+
+    <div class="card-body">
+        <div> Tips! Direct click on the option can vote! </div>
+
+        <ul class="list-group">
+            {% for option in options %}
+            <li class="list-group-item">
+                <a href="/option/{{ option.id }}/update/" class="btn btn-sm btn-secondary">update </a>
+                <a href="/option/{{ option.id }}/delete/" class="btn btn-sm btn-danger"> delete </a>
+                <a href="/option/{{ option.id }}">{{ option.title }}</a> : {{ option.count }} vote
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="card-footer">
+            <a href="/option/create/{{ poll.id }}" class="btn btn-sm btn-primary">Create New Option</a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

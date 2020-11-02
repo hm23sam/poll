@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Poll Subject</h1>
+<p><a href="/poll/create/" class="btn btn-primary">Create New Poll Subject</a></p>
+<ul class="list-group">
+    {% for poll in poll_list %}
+    <li class="list-group-item">
+        {{ poll.date_created }}
+        <a href="/poll/{{ poll.id }}/">{{ poll.subject }}</a> |
+        <a href="/poll/{{ poll.id }}/update/" class="btn btn-sm btn-secondary">update</a> |
+        <a href="/poll/{{ poll.id }}/delete/" class="btn btn-sm btn-danger">delete</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

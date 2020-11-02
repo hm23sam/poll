@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if backpath %}
+<a href="{{ backpath }}" class="btn btn-primary">prev</a><BR>
+{% endif %}
+<h1>{{ title }}</h1>
+
+<div class="list-group-item">{{object}}</div>
+<p>You confirm delete this record?</p>
+
+<form acion="" method="post">
+
+    {% csrf_token %}
+    <input type="submit" value="CONFIRM" class="btn btn-sm btn-danger">
+
+    <!--
+    <button onclick="goBack()">Cancel</button>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    --->
+</form>
+{% endblock %}
